@@ -1,0 +1,74 @@
+File System vs DBMS-
+File system comes with the Operating System.
+
+Hard disk -> File System -> Notepad
+             (Interface)
+Due to file system only, we manage to put different files at different places.  (Folders -> Sub-folders -> Directories -> Files)
+
+We can only manage small amount of data by file system, it's not a good idea to use file system when it comes to large amount of data.
+
+Now, Hard disk -> File System -> MySql file
+We still use file system, its just that now data is managed by DBMS.
+
+---------------------------------------------------------------------------
+FILE SYSTEM -> To manage small database:
+No data type is defined, raw unstructured data is directly stored in hard disk;
+Unstructured data -> Data which is not structured using some pre-defined data models or schemas.
+80% of the data is unstructured data;
+
+Drawbacks of File System-
+---------------------------
+` No specific format defined-
+02/11/2023 -> DD/MM/YYYY
+11/02/2023 -> MM/DD/YYYY
+$ In DBMS, Specific format is defined as there is Structured data.
+
+` You need to know the location of the file you want to search data from;
+What if more than one user is accessing the data, how would everyone know the file location?
+			 User1
+			    |
+			    |
+			|--------|
+	    User4_______|File	 |______User2
+			|Location|
+			|--------|
+			    |
+			    |
+			 User3
+Data might also be stored at remote location, you'll not be able to know the location.
+$ In DBMS, You simply write the name of the file you want to access and you'll get the data without knowing anything about the address where its stored;
+
+` You have a file of 10Gb, you want to just access a small detail whose size is 5Mb, you write a program in C/C++/Java language, here all the 10Gb data will be extracted which is not feasible at all.
+$ DBMS will just give you the exact data you are looking for.
+
+` For each query, you need to write and compile a complete program.
+$ In DBMS, write One simple query, you get the result, again write one simple query and you'll get the next result. No need to write whole program and compile it everytime.
+
+` Data Redundancy, discussed already;
+` Inconsistency.
+$ In DBMS, Flexible access of the data is possible.
+
+` Concurrent access -> One file, Multiple users;
+      Both users are reading is okay;
+      One user is writing and other is reading, violation of concurrency;
+      Other user should read only when the 1st user is done with writing;
+   ~ In file system, there is not concurrency protocol;
+$ In DBMS, we have this protocol;
+
+` Integrity.
+` Security -> You can secure whole file, but if you want to hide or secure a part of the file and open it the other parts, its not possible in file system.
+Mechanism for security is much more stronger in DBMS;
+
+DBMS -> To manage large database;
+Pre-defined Structure data;
+You need to define the data type of values stored in the table.
+Searching becomes very easy on structured data.
+
+
+
+
+
+
+
+
+
