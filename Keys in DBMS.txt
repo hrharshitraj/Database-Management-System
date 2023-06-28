@@ -5,7 +5,7 @@
 	    Student Table(Relation)-
        -------|-------|-------|--------		
 	Name  |	Marks |	Dept  |	Course	 {Columns(4) -> Attributes/Fields,
-       --------------------------------   Rows(5) -> Tuples/Records}
+       -------|-------|-------|--------   Rows(5) -> Tuples/Records}
 	  a   |	 78   |	 CS   |	  c1	  
 	  b   |	 60   |	 EE   |	  c2
 Rows->	  a   |	 78   |	 CS   |	  c2
@@ -24,7 +24,7 @@ We should be able to identify each record uniquely. Key helps in doing that;
 	 Student Table(Relation)-
 ------|-------|-------|-------|--------		
   ID  |	Name  | Marks | Dept  | Course	
-------|--------------------------------
+------|-------|-------|-------|--------
    1  |	  a   |	 78   |	 CS   |	  c1	  
    2  |	  b   |	 60   |	 EE   |	  c2
    3  |	  a   |	 78   |	 CS   |	  c2
@@ -39,7 +39,7 @@ Q. Fetch the record where 'Name=a and Marks=78' -> ID 1 and ID 3(Not Unique) -> 
 
 If you access all the column values, then without S.No. you will get the keys as all the attributes of two tuples(records) can't be same;
 
----------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Types of Keys-
 1. Super Key -> Key/Superkey is an attribute or set of attributes that can uniquely identify each record of table. A super key is a superset of a candidate key.
 
@@ -67,8 +67,7 @@ n = 5 -> 31
 n = 4 -> 15    |------------------------------|
 	       | Max no. of superkeys = 2^n-1 |
 	       |------------------------------|
----------------------------------------------------------------------------
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. Candidate Key -> A candidate key is a superkey whose proper subset is not a superkey(Minimal Superkey).
 A super key is a superset of a candidate key.
 
@@ -109,8 +108,7 @@ Not a proper subset-
 S2 is subset of S1;
 S1 is subset of S2;
 */
-
----------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 3. Primary Key -> One most suitable not empty(null) candidate key amongst available ones is called Primary key.
 Remaining candidate keys are termed as secondary(alternate) key.
 It is the first key used to identify one and only one instance of an entity uniquely.
@@ -119,9 +117,7 @@ The key which is most suitable from those lists becomes a primary key.
 In the EMPLOYEE table, ID can be the primary key since it is unique for each employee. In the EMPLOYEE table, we can even select License_Number and Passport_Number as primary keys since they are also unique.
 Should not be null, rest no constraints to choose primary key;
 
-
 * Every table can have multiple superkeys, multiple candidates but can have just a single primary key.
-
 
 Q. R(ABC) -> i) Given: A is candidate key
 No. of super keys = ?
