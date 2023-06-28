@@ -1,0 +1,137 @@
+			Keys in DBMS-
+` Keys are used to uniquely identify any record or row of data from the table. It is also used to establish and identify relationships between tables.
+` Key is an attribute or set of attributes that uniquely identifies each record in the table.
+
+	    Student Table(Relation)-
+       -------|-------|-------|--------		
+	Name  |	Marks |	Dept  |	Course	 {Columns(4) -> Attributes/Fields,
+       --------------------------------   Rows(5) -> Tuples/Records}
+	  a   |	 78   |	 CS   |	  c1	  
+	  b   |	 60   |	 EE   |	  c2
+Rows->	  a   |	 78   |	 CS   |	  c2
+	  b   |  60   |	 EE   |	  c3
+	  c   |	 80   |	 IT   |	  c2
+
+Q. Why do we need keys in DBMS?
+Suppose you want to access some data, you need row address, column address to get that.
+Columns have their names in Name,Marks,Dept,Course;
+But Rows don't have any name which makes a data tough to be found;
+
+Somebody wants to fetch the record of a, we would be confused as there's 2 a's in the table.
+
+We should be able to identify each record uniquely. Key helps in doing that;
+
+	 Student Table(Relation)-
+------|-------|-------|-------|--------		
+  ID  |	Name  | Marks | Dept  | Course	
+------|--------------------------------
+   1  |	  a   |	 78   |	 CS   |	  c1	  
+   2  |	  b   |	 60   |	 EE   |	  c2
+   3  |	  a   |	 78   |	 CS   |	  c2
+   4  |	  b   |  60   |	 EE   |	  c3
+   5  |	  c   |	 80   |	 IT   |	  c2
+Now, you want to access every record uniquely in the given table;
+You tell if you want to fetch which a's record, 1's or 3rd's;
+ID is key here;
+
+Q. Fetch the record where 'Dept=CS and Course=c1' -> ID 1(Unique) -> 'Dept=CS and Course=c1' is key here;
+Q. Fetch the record where 'Name=a and Marks=78' -> ID 1 and ID 3(Not Unique) -> 'Name=a and Marks=78' -> Not a key as they are not unique;
+
+If you access all the column values, then without S.No. you will get the keys as all the attributes of two tuples(records) can't be same;
+
+---------------------------------------------------------------------------
+# Types of Keys-
+1. Super Key -> Key/Superkey is an attribute or set of attributes that can uniquely identify each record of table. A super key is a superset of a candidate key.
+
+EMPLOYEE -> Employee_ID, Employee_Name, Passport_Number, SSN;
+For(EMPLOYEE_ID, EMPLOYEE_NAME), the name of two employees can be the same, but their EMPLOYEE_ID can't be the same. Hence, 
+EMPLOYEE_ID -> Key/Superkey
+EMPLOYEE_ID, EMPLOYEE_NAME -> This combination can also be a key/superkey, etc.
+
+Q. In the given table above, which of the following is superkey?
+a) Name, Marks, Dept  -> Not a Superkey {a,78,CS};
+b) Marks, Course, Dept -> Superkey {Unique};
+
+Maximum Superkeys in a Table-
+f = Column size(n);
+fC1 + fC2 + fC3 + fC4 + ....... + fCt(nCr);
+      ---------------------
+      |nCr = n!/(r!(n-r)!)|
+      ---------------------
+Above table, n=5;
+5C1 + 5C2 + 5C3 + 5C4 + 5C5
+5 + 10 + 10 + 5 + 1 = 31 Maximum Superkeys;
+r=3 -> 5!/(3!(5-3)!)  {5! = 5*4*3!}
+       5*4/2 = 10
+n = 5 -> 31
+n = 4 -> 15    |------------------------------|
+	       | Max no. of superkeys = 2^n-1 |
+	       |------------------------------|
+---------------------------------------------------------------------------
+
+2. Candidate Key -> A candidate key is a superkey whose proper subset is not a superkey(Minimal Superkey).
+A super key is a superset of a candidate key.
+
+	R(A,B,C)
+	  1 1 1
+	  2 1 2
+	  3 2 1
+	  4 2 2
+Superkey in this table -> A,AB,AC,ABC,BC
+* Proper subset of ABC -> A,B,C,AB,AC,BC
+Now, check if proper subsets are superkeys or not-
+Even if a single proper subset is there of a superkey, it won't be a Candidate key, A,AB,AC,BC -> Superkey, Proper subset of ABC, ABC is not a Candidate key;
+
+* Proper subset of AB -> A,B   -> A is there in superkey;
+* Proper subset of AC -> A,C   -> A is there in superkey;
+* Proper subset of BC -> B,C   -> No superkey is common to proper subset of BC, BC is a Candidate key;
+* Proper subset of A -> Empty;  -> No superkey(Empty) is common to proper subset of A, A is a Candidate key;
+
+So, Candidate keys in this table -> A,BC
+
+As long as you can discard a key, it can't be a candidate key;
+The Moment your superkey is Minimal, it's a candidate key;
+ABC -> Discard C -> AB is still a superkey -> Discard B -> A is still a superkey -> Discard A -> Now Empty space is not a superkey, so A is a Candidate key;
+BC -> Discard C/B -> B/C is not a superkey -> BC is a Candidate key;
+NOTE: Every candidate key is a superkey but Every superkey is not a candidate key;
+
+/* Proper Subset
+S1 = {1,2,3}				  |----------------------|
+S2 = {1,2}				  |	Super Key	 |
+Proper Subset-(S1 C S2)			  |   |---------------|  |
+S2 is subset of S1;			  |   | Candidate Key |  |
+S1 is not a subset of S2;		  |   |---------------|  |
+					  |		         |
+					  |----------------------|
+S1 = {1,2,3}
+S2 = {1,2,3}
+Not a proper subset-
+S2 is subset of S1;
+S1 is subset of S2;
+*/
+
+---------------------------------------------------------------------------
+3. Primary Key -> One most suitable not empty(null) candidate key amongst available ones is called Primary key.
+Remaining candidate keys are termed as secondary(alternate) key.
+It is the first key used to identify one and only one instance of an entity uniquely.
+The key which is most suitable from those lists becomes a primary key.
+
+In the EMPLOYEE table, ID can be the primary key since it is unique for each employee. In the EMPLOYEE table, we can even select License_Number and Passport_Number as primary keys since they are also unique.
+Should not be null, rest no constraints to choose primary key;
+
+
+* Every table can have multiple superkeys, multiple candidates but can have just a single primary key.
+
+
+Q. R(ABC) -> i) Given: A is candidate key
+No. of super keys = ?
+If A is candidate key, A,AB,AC,ABC would be super keys for sure(combine with any other attribute and that would be unique);
+No Information about B or C;
+	    ii) Given: AC is candidate key
+AC, Super keys -> AC, ABC;
+A isn't a candidate key, A can't be a super key;
+
+Q. R(ABCD) -> Given: A and D are candidate keys;
+12 superkeys: A,AB,AC,AD,ABC,ABD,ACD,ABCD,D,DB,DC,DBC;
+
+
