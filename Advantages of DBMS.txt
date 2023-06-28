@@ -1,0 +1,17 @@
+// Some popular databases are MySQL, Oracle, MongoDB, etc.
+
+# Reasons to learn DBMS:
+Suppose you have stored details like : Name, Number, Age and Address of your friends in a database;
+Now, you have to share it with someone but phone number of your friends should not be visible, by writing a C program, you can create a new file where you have all the details of your friends expect their phone number.
+Again you have to share the details where there address should not be visible, you again write the C program. create a new file system and share it.
+
+Now, you want to add details of one more friend of yours. You need to add all the details in three files. It's redundant as same data is stored at multiple places.
+Apart from that it's also not consistent.
+Inconsistent because what if you add the details in 2 files and forgot to write in 3rd file.
+Security also becomes an issue as here, user can directly manipulates the databse.
+
+This is where DBMS comes into play;
+1. Organizing and management of data: DBMS helps in managing large amounts of data in an organized manner. It provides features like create, edit, delete, and read.
+2. Data Security: DBMS provides Security to the data from the unauthorized person (User -> DBMS -> Database).
+3. Improved decision-making: From stored data in the database we can generate graphs, reports, and many visualizations which helps in decision-making.
+4. Consistency: In a traditional database model all things are manual or inconsistent, but DBMS enables to automation of the operations by queries.
