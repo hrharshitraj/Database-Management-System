@@ -29,3 +29,4 @@ DBMS is a computerized data storing system that can access a database and perfor
 
 RDBMS - DBMS that stores all the information in form of tables.
 ~ Data is organized in the form of tables and each table has a set of rows and columns. The data is related to each other through primary and foreign keys.
+
