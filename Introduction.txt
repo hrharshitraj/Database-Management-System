@@ -1,0 +1,31 @@
+Data -> Facts that can be recorded.
+Information -> Meaningful/Processed data.
+    Ex: PEA308 = Data;
+	PEA308 -> Aptitude Subject = Information
+
+Database -> Database is a collection of inter-related data that is used to retrieve(access without knowing the address of data), insert, delete and update the data efficiently.
+
+Database only stores inter-related data.
+Student's Name, Car's Model, Bollywood Movie -> These are data but can't be stored in a database as it doesn't solve any real life problem/query and they are not related to each other in any manner.
+
+The college database organizes the data about the admin, staff, students, faculty, etc.
+
+By using the database, we can easily retrieve, insert and delete the information.
+
+Database is used to organize the data in the form of a table, schema, views, reports, etc.
+
+Q: Is Newspaper a Database?
+A: No, it stores the related data, but it doesn't represent real world entities, once printed on a newspaper can't be changed;
+Let's say there's a database of faculties. One faculty left the job, we need to delete the information stored in the database of that faculty.
+
+DBMS - Database Management System:
+DBMS is a computerized data storing system that can access a database and perform several kinds of operations to manipulate the data in the database.
+
+~ A Database Management System (DBMS) is a software system that is designed to manage and organize data in a structured manner. It allows users to create, modify, and query a database, as well as manage the security and access controls for that database.
+
+|----------------------------------------------------------|
+| Database + Database Management System = Database System; |
+|----------------------------------------------------------|
+
+RDBMS - DBMS that stores all the information in form of tables.
+~ Data is organized in the form of tables and each table has a set of rows and columns. The data is related to each other through primary and foreign keys.
