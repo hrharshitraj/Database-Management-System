@@ -1,0 +1,109 @@
+Functional Dependencies-
+	- Some attribute depends on another attribute, as name suggests;
+
+The functional dependency is a relationship that exists between two attributes. It typically exists between the primary key and non-key attribute within a table.
+
+FD: x --> y;
+y is functionally dependent on x;
+x determines y;
+x -> Determinant;
+y -> Dependent;
+value of x will be given from which you can search tha value of y from the table;
+-----------------------------------------------------------------------------
+It's not that the value of y will be calculated/computed from the given value of x;
+x = 5, y=x^2+3 -> y=5^5+3 -> y = 28, No, that doesn't happen;
+---------------------------------------------------------------------------
+
+We need to follow some rules to check if there is functional dependencies in this table-  |------|		
+	      	|x    y|
+		|------|
+		|1    1|
+		|2    1|
+		|3    2|
+		|4    3|
+		|------|
+If x = 2 is given, y =?
+From the table we can tell that y = 1;
+
+		|------|
+	      	|x    y|
+		|------|
+		|1    1|
+		|2    1|
+		|3    2|
+		|4    3|
+		|2    5|
+		|------|
+Now, what's the value of y if x=2 given?
+If x is same at both the points, y value must must be same in both tuples;
+y -> 1,1 || y -> 5,5;
+x can not determine y here, No functional dependencies between x and y;
+You need to find if there is functional dependency in the table based on relations given in the table.
+
+|--------------------------------|
+|Functional dependency-		 |
+|If t1.x = t2.x,		 |
+|then t1.y must be equal to t2.y;|
+|--------------------------------|
+|Not a Functional dependency-	 |
+|If t1.x != t2.x,		 |
+|then, even if t1.y = t2.y;	 |
+|--------------------------------|
+|Functional dependency-          |
+|If x is unique in the table,	 |
+| no need to check anything,	 |
+|   x --> y			 |
+|--------------------------------|
+
+x and y can also be set of attributes as well;
+
+        Student Table(Relation)-
+ ------|------|-------|-------|--------		
+  RNo. | Name | Marks | Dept  | Course	
+ ------|------|-------|-------|--------		FD: x-->y,
+   1   |  a   |	 78   |	 CS   |	  c1	  	if t1.x = t2.x,
+   2   |  b   |	 60   |	 EE   |	  c2		then, t1.y = t2.y;
+   3   |  a   |	 78   |	 CS   |	  c2
+   4   |  b   |  60   |	 EE   |	  c3
+   5   |  c   |	 80   |	 IT   |	  c2
+   6   |  d   |  80   |  EC   |   c2
+ ------|------|-------|-------|---------
+* RNo. --> Name, Unique RNo. Functional dependency;
+* Name --> RNo, t1.a = t2.a, t1.1 != t2.3, Not a Functional dependency;
+FD ->	t1.a = t2.a,
+        t1.78 = t2.78;
+FD ->   t1.b = t2.b,
+	t2.60 = t2.60;
+* Name --> Marks, When t1.x = t2.x, always t1.y = t2.y, Functional dependency;
+* Marks --> Name, t1.80 = t2.80, t1.c != t2.d, Not a Functional dependency;
+* Marks --> Dept, t1.80 = t2.80,
+		  t1.IT != t2.EC, Not a Functional dependency;
+* Dept --> Course, t1.CS = t2.CS,
+		   t1.c1 != t2.c2, Not a Functional dependency;
+
+~ Functional Dependencies taking set of attributes-
+* RNo.,Name --> Marks
+    (x)          (y) 
+  Unique values, If RNo. is unique, RNo.,x,y,etc, would be a Functional dependency to any other tuple;
+* Name,Marks --> Dept
+     (x)         (y)
+- Functional Dependency,   FD -> t1.x(a,78) = t2.x(a,78),
+        			 t1.CS = t2.CS;
+* If Name,Marks --> Dept is a Functional dependency, Name,Marks --> Dept,Course may/may not be a Functional dependency;
+Here, Not a functional dependency, t1.x(a,78) = t2.x(a,78)
+				   t1.y(CS,c1) != t2.y(CS,c2);
+
+---------------------------------------------------------------------------
+In a relational database management, functional dependency is a concept that specifies the relationship between two sets of attributes where one attribute determines the value of another attribute.
+It is denoted as X → Y, where the attribute set on the left side of the arrow, X is called Determinant, and Y is called the Dependent. 
+
+Functional dependencies are used to mathematically express relations among database entities.
+
+
+
+
+
+
+
+
+
