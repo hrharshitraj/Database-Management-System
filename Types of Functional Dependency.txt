@@ -1,0 +1,29 @@
+Types of Functional Dependency (X-->Y)-
+1. Trivial
+2. Non-Trivial
+3. Multi-valued
+4. Transitive
+
+1. Trivial Functional Dependency-
+In Trivial Functional Dependency, a dependent(y) is always a subset of the determinant(x).
+If y is subset of x, then x-->y is a trivial functional dependency;
+
+x-->x is also a trivial fd as x is obviously x subset of x;
+It's like I give you the roll no. of a student and ask you to tell me the roll no. of that same student;
+
+RNo-->RNo -> Trivial
+RNo,Name-->Name	-> Trivial
+RNo,Name-->RNo -> Trivial
+
+---------------------------------------------------------------------------
+2. Non-Trivial Functional Dependency-
+x-->y, but the intersection of x and y is null, nothing common between x and y, then it's a non-trivial fd;
+RNo-->Name -> Non-trivial fd, Not sure if it's functional dependency or not, need to look at the table to check;
+
+Or, x-->y, and y is not a subset of x, then also it's a non-trivial fd(Semi-trivial);
+RNo,Name-->Name,Marks
+  (x)         (y)
+y is not subset of x, but intersection of x and y is also not null as Name is common in both x and y, so it may be termed as a semi-trivial fd;
+
+
+
