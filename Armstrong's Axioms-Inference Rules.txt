@@ -1,4 +1,5 @@
-Armstrong's Axioms/Inference Rules-				** Primary, * Secondary					|------------------------------------------------------------------------------------------------------------|
+Armstrong's Axioms/Inference Rules-				** Primary, * Secondary					
+        |------------------------------------------------------------------------------------------------------------|
 	| ** Reflexivity,Transitivity,Augumentation , * Union,Decomposition/Splitting,PseudoTransivity, Composition- |
 	|------------------------------------------------------------------------------------------------------------|
 The term Armstrong Axioms refers to the sound and complete set of inference rules or axioms, introduced by William W. Armstrong, that is used to test the logical implication of functional dependencies.
