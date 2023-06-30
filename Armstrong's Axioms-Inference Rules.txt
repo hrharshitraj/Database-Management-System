@@ -1,0 +1,92 @@
+Armstrong's Axioms/Inference Rules-				** Primary, * Secondary					|------------------------------------------------------------------------------------------------------------|
+	| ** Reflexivity,Transitivity,Augumentation , * Union,Decomposition/Splitting,PseudoTransivity, Composition- |
+	|------------------------------------------------------------------------------------------------------------|
+The term Armstrong Axioms refers to the sound and complete set of inference rules or axioms, introduced by William W. Armstrong, that is used to test the logical implication of functional dependencies.
+
+* Armstrong’s Axioms are a set of rules, that when applied repeatedly, generates a closure of functional dependencies. 
+
+Using these rules, you can find all the functional dependency in a given table.
+	       Student Table(Relation)-
+ 	-----|------|-------|-------|--------		
+  	RNo. | Name | Marks | Dept  | Course	
+ 	-----|------|-------|-------|--------		
+ 	 1   |  a   |	78  |  CS   |  c1	  	
+  	 2   |  b   |	60  |  EE   |  c2
+  	 3   |  a   |	78  |  CS   |  c2
+  	 4   |  b   |   60  |  EE   |  c3
+  	 5   |  c   |	80  |  IT   |  c2
+ 	-----|------|-------|-------|--------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+* 3 primary rules are there to find fd in a table, i.e, Reflexivity,Transitivity,Augumentation-
+
+1. Reflexivity-
+Any attribute/set of attributes will determine itself, x-->x;
+Similar to Trivial dependency, x-->y, y must be subset of x;
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Transitivity-
+If, x-->y, y-->z, then x-->z for sure;
+No need to check;
+\Obvious\, Either among x-->y or y-->z is not true, then we need to check if x-->z or not;
+		      |------------------|
+		      |	If, x-->y, y-->z |
+		      |	then, x-->z      |
+		      |------------------|
+In the table given above-
+Name-->Marks,
+Marks-->Dept;
+See, without checking we could tell that, Name-->Dept;
+
+Now, 
+	       Student Table(Relation)-
+ 	-----|------|-------|-------|--------		
+  	RNo. | Name | Marks | Dept  | Course	
+ 	-----|------|-------|-------|--------		
+ 	 1   |  a   |	78  |  CS   |  c1	  	
+  	 2   |  b   |	60  |  EE   |  c2
+  	 3   |  a   |	78  |  CS   |  c2
+  	 4   |  b   |   60  |  EE   |  c3
+  	 5   |  c   |	80  |  IT   |  c2
+	 6   |  d   |   80  |  EC   |  c4
+ 	-----|------|-------|-------|--------
+Name-->Marks,
+But, Marks!->Dept, as t1.80=t2.80, t1.IT!=t2.EC;
+Now, we can't directly say if Name-->Dept, we need to check from the table;
+Here, Name-->Dept;
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Augumentation-
+* In general, it means to make something bigger by adding something into it;
+Adding attributes to dependencies, does not change the basic dependencies.
+		|-------------------------|
+		| If x-->y, then xA-->yA; |
+		|-------------------------|
+	    RNo-->Name, RNo,Marks-->Name,Marks;
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+* There are 4 secondary rules as well along with 3 primary rules to find fd in a table which can be proved using the 3 primary rules, 
+* We use secondary rules to make things easier for us-
+
+	1. Union-			    2. Decomposition/Splitting-		3. Pseudo Transivity-		4. Composition-
+	|-----------------|		    |--------------------|		 |-------------------|		  |-------------------|
+	| If x-->y, x-->z |		    | If x-->yz,         |     	         | If x-->y, yz-->A, |	          | If x-->y, A-->B,  |
+	| then x-->yz;    |		    | then x-->y, y-->z; |	         | then xz-->A;      |	          | then, xA-->yB;    |
+	|-----------------|		    |--------------------|	         |-------------------|		  |-------------------|
+	
+* If, xy-->z, then its not necessary that, z-->z, y-->z;		      RNo-->Name, Name,Marks-->Dept, 
+									      (x)    (y)   (y)  (z)     (A)         
+										then, RNo,Marks-->Dept
+										      (x) (z)     (A)
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FAQs on Armstrong Axioms-
+1. List the primary rules of Armstrong Axioms.
+The primary rules of the Armstrong Axioms are:
+Reflexivity
+Augmentation
+Transitivity
+
+2. When do we use Armstrong Axioms?
+We use Armstrong Axioms to determine the functional dependency in the database. Generally, it is used to derive other functional dependency in the database using the given functional dependency.
+
+3. What do you mean by sound in Armstrong Axioms?
+By Sound, we simply mean that those set of functional dependency F that we can relate from F to a relation schema R using the primary rules of Axioms in each relation r that satisfy the dependency of F.
+
+
